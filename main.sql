@@ -19,7 +19,6 @@ USE `loja_livros`;
 -- Tabela Usuarios
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `loja_livros`.`Usuarios` (
-  # Atributos
   `id_usuario` INT           NOT NULL AUTO_INCREMENT,
   `CPF`        CHAR(11)      NOT NULL,
   `nome`       VARCHAR(255)  NOT NULL,
@@ -28,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Usuarios` (
   `endereco`   VARCHAR(45)   NOT NULL,
   `criado_em`  TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-  # Integridade
+  #--Integridade
   PRIMARY KEY (`CPF`),
   UNIQUE (`id_usuario`, `email`),
   CONSTRAINT vld_cpf CHECK (cpf REGEXP '^[0-9]+$')
@@ -48,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Editora` (
 
   `criado_em`  DATETIME     NULL DEFAULT CURRENT_TIMESTAMP,
 
-  # Integridade
+  -- Integridade
   PRIMARY KEY (`id_editora`, `CNPJ`),
   UNIQUE  (`CNPJ`, `email`),
 
@@ -64,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Autor` (
   `nome`      VARCHAR(255) NOT NULL,
   `biografia` TEXT             NULL,
 
-  # Integridade
+  -- Integridade
   PRIMARY KEY (`id_autor`)
 );
 
@@ -75,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Categorias` (
   `cod_categoria`  INT         NOT NULL,
   `nome`           VARCHAR(45) NOT NULL,
 
-  # Integridade
+  -- Integridade
   PRIMARY KEY (`cod_categoria`)
 );
 
@@ -84,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Categorias` (
 -- Tabela Livro
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `loja_livros`.`Livro` (
-#   `id_livro`        INT                          NOT NULL AUTO_INCREMENT,
+--`id_livro`        INT                          NOT NULL AUTO_INCREMENT,
   `id_livro`        BINARY(16)                   DEFAULT (UUID_TO_BIN(UUID())),
   `ISBN`            CHAR(13)                     NOT NULL,
   `titulo`          VARCHAR(255)                 NOT NULL,
@@ -95,12 +94,12 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Livro` (
   `tipo_de_media`   ENUM('HQ', 'Mangá', 'Livro') NOT NULL  DEFAULT 'Livro',
   `data_publicacao` DATE                         NOT NULL,
 
-  # FK
+  -- FK
   `editora_CNPJ`    CHAR(14)                     NOT NULL,
   `autor_ID`        INT                          NOT NULL,
 
   `criado_em`       DATETIME                         NULL  DEFAULT CURRENT_TIMESTAMP,
-  # Integridade
+  -- Integridade
   PRIMARY KEY (`ISBN`),
   UNIQUE(`id_livro`, `slug`),
 
