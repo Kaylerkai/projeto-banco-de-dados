@@ -8,7 +8,6 @@ FOR EACH ROW
 BEGIN
     SET NEW.senha = SHA2(NEW.senha, 256);
 END $$
--- END;
 DELIMITER ;
 
 -- -----------------------------------------------------
@@ -22,5 +21,4 @@ FOR EACH ROW
 BEGIN
     SET NEW.senha = SHA2(NEW.senha, 256);
 END $$
--- END;
 DELIMITER ;

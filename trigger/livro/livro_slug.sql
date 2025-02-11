@@ -8,7 +8,6 @@ FOR EACH ROW
 BEGIN
     SET NEW.slug = SLUG_FORMAT(NEW.titulo);
 END $$
-END;
 DELIMITER ;
 
 -- -----------------------------------------------------
@@ -21,5 +20,4 @@ FOR EACH ROW
 BEGIN
    SET NEW.slug = SLUG_FORMAT(NEW.titulo);
 END $$
--- END;
 DELIMITER ;
