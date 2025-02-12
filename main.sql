@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Categorias` (
 -- Tabela Livro
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `loja_livros`.`Livro` (
---`id_livro`        INT                          NOT NULL AUTO_INCREMENT,
+ -- `id_livro`        INT                          NOT NULL AUTO_INCREMENT,
   `id_livro`        BINARY(16)                   DEFAULT (UUID_TO_BIN(UUID())),
   `ISBN`            CHAR(13)                     NOT NULL,
   `titulo`          VARCHAR(255)                 NOT NULL,
@@ -168,7 +168,8 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Livro_tem_Categorias` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `loja_livros`.`Pedidos` (
   `id_pedido`     INT           NOT NULL AUTO_INCREMENT,
-  `total_pedido`  DECIMAL(10,2) NULL,
+ -- `total_pedido`  DECIMAL(10,2) NULL,
+  `status_pedido`	VARCHAR(50)   NULL DEFAULT 'Em andamento',
   `usuario_CPF`   CHAR(11)      NOT NULL,
 
   PRIMARY KEY (`id_pedido`),
@@ -186,6 +187,7 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Pedidos` (
 CREATE TABLE IF NOT EXISTS `loja_livros`.`Carrinho` (
   `pedido_ID`   INT       NOT NULL,
   `ISBN`        CHAR(13)  NOT NULL,
+  `total_pedido`  DECIMAL(10,2) NULL,
   `quantidade`  INT       NOT NULL,
 
   -- referência a tabela pedido
