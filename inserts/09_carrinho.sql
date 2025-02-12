@@ -1,0 +1,29 @@
+-- -----------------------------------------------------
+-- Populando banco de dados de carrinhos
+-- INSERT
+-- -----------------------------------------------------
+
+INSERT INTO
+  `loja_livros`.`Carrinho` (`pedido_ID`, `ISBN`, `total_pedido`, `quantidade`)
+VALUES
+  -- OK
+  ('1', '9788532517708', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '07630178840' ORDER BY id_pedido DESC LIMIT 1)), 1),
+  ('2', '9788323799825', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '49664926701' ORDER BY id_pedido DESC LIMIT 1)), 2),
+  ('3', '9788532518798', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '06675799665' ORDER BY id_pedido DESC LIMIT 1)), 3),
+  ('4',  '9780689859397', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '00919020968' ORDER BY id_pedido DESC LIMIT 1)), 1),
+  ('5', '9780689859403', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '74374501002' ORDER BY id_pedido DESC LIMIT 1)), 5),
+  ('6', '9786584824089', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '98104275577' ORDER BY id_pedido DESC LIMIT 1)), 2),
+  ('7', '9783570165263', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '78901234567' ORDER BY id_pedido DESC LIMIT 1)), 1),
+  ('8', '9788551007343', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '89012345678' ORDER BY id_pedido DESC LIMIT 1)), 1),
+  ('9', '9788551007350', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '90123456789' ORDER BY id_pedido DESC LIMIT 1)), 4),
+  ('10', '9788551007367', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '66896742232' ORDER BY id_pedido DESC LIMIT 1)), 8),
+  ('11',  '9788551007367', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '64599370282' ORDER BY id_pedido DESC LIMIT 1)), 1),
+  ('12', '9788551007381', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '34278956886' ORDER BY id_pedido DESC LIMIT 1)), 2),
+  ('13', '9786555320213', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '56756756756' ORDER BY id_pedido DESC LIMIT 1)), 1),
+  ('14', '9786555320350', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '67867867867' ORDER BY id_pedido DESC LIMIT 1)), 1),
+  ('15', '9788594318619', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '89089089089' ORDER BY id_pedido DESC LIMIT 1)), 4),
+  ('16', '9786555114744', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '90190190190' ORDER BY id_pedido DESC LIMIT 1)), 2),
+  ('17', '9780008627800', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '12345678901' ORDER BY id_pedido DESC LIMIT 1)), 1),
+  ('18', '9780001113489', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '98765432100' ORDER BY id_pedido DESC LIMIT 1)), 4),
+  ('19', '9780507653400', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '19283746500' ORDER BY id_pedido DESC LIMIT 1)), 1),
+  ('20', '9780507900182', (select sum(c.quantidade * l.preco) from `loja_livros`.`Carrinho` c join `loja_livros`.`Livro` l ON c.ISBN = l.ISBN where c.pedido_ID = (select id_pedido from `loja_livros`.`Pedidos` WHERE usuario_CPF = '56473829100' ORDER BY id_pedido DESC LIMIT 1)), 4);
