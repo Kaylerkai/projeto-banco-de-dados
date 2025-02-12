@@ -123,4 +123,30 @@ VALUES
 		'thiago.rocha@exemplo.com',
 		'senha1919',
 		'Rua R, 600, Goiânia, GO'
-	);
+	), 
+    (
+		'12345678901',
+        'Ana Souza',
+        'ana.souza@exemplo.com',
+        'senha1234',
+        'Avenida Paulista, 1000, São Paulo, SP'
+	),
+	(
+		'98765432100',
+        'Carlos Silva',
+        'carlos.silva@exemplo.com',
+        'senha9876',
+        'Rua das Flores, 123, Curitiba, PR'
+	),
+	(
+		'19283746500',
+        'Mariana Alves',
+        'mariana.alves@exemplo.com',
+        'senha2468',
+        'Praça Central, 45, Recife, PE'
+	),
+		('56473829100',
+		'José Pereira',
+		'jose.pereira@exemplo.com', 
+		'senha1122', 
+		'Travessa do Sol, 789, Rio de Janeiro, RJ');
