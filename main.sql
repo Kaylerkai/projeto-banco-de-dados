@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Usuarios` (
   `endereco`   VARCHAR(45)   NOT NULL,
   `criado_em`  TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-  #--Integridade
+  --Integridade
   PRIMARY KEY (`CPF`),
   UNIQUE (`id_usuario`, `email`),
   CONSTRAINT vld_cpf CHECK (cpf REGEXP '^[0-9]+$')
@@ -83,14 +83,14 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Categorias` (
 -- Tabela Livro
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `loja_livros`.`Livro` (
---`id_livro`        INT                          NOT NULL AUTO_INCREMENT,
+-- `id_livro`        INT                          NOT NULL AUTO_INCREMENT,
   `id_livro`        BINARY(16)                   DEFAULT (UUID_TO_BIN(UUID())),
   `ISBN`            CHAR(13)                     NOT NULL,
   `titulo`          VARCHAR(255)                 NOT NULL,
   `slug`            VARCHAR(255)                 NOT NULL,
   `descricao`       TEXT                             NULL,
   `preco`           DECIMAL(10,2)                NOT NULL,
-  `qnt`             INT                          NOT NULL  DEFAULT 0,
+  `qnt`             INT                          NOT NULL  DEFAULT 20,
   `tipo_de_media`   ENUM('HQ', 'Mangá', 'Livro') NOT NULL  DEFAULT 'Livro',
   `data_publicacao` DATE                         NOT NULL,
 
@@ -174,29 +174,20 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Pedidos` (
   PRIMARY KEY (`id_pedido`),
 
   -- referência a tabela usuário
-  FOREIGN KEY (`usuario_CPF`)
-    REFERENCES `loja_livros`.`Usuarios` (`CPF`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
+  FOREIGN KEY (`usuario_CPF`) REFERENCES `loja_livros`.`Usuarios` (`CPF`)
 );
 
 -- -----------------------------------------------------
--- Tabela Carrinho                                    --
+-- Tabela Pedidos_Item                                --
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `loja_livros`.`Carrinho` (
+CREATE TABLE IF NOT EXISTS `loja_livros`.`Pedidos_Item` (
   `pedido_ID`   INT       NOT NULL,
   `ISBN`        CHAR(13)  NOT NULL,
   `quantidade`  INT       NOT NULL,
 
   -- referência a tabela pedido
-  FOREIGN KEY (`pedido_ID`)
-    REFERENCES `loja_livros`.`Pedidos` (`id_pedido`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  FOREIGN KEY (`pedido_ID`) REFERENCES `loja_livros`.`Pedidos` (`id_pedido`),
 
   -- referência a tabela livros
-  FOREIGN KEY (`ISBN`)
-    REFERENCES `loja_livros`.`Livro` (`ISBN`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+  FOREIGN KEY (`ISBN`) REFERENCES `loja_livros`.`Livro` (`ISBN`)
 );
