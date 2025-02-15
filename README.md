@@ -14,3 +14,7 @@ Sistema de venda de livros, quadrinhos, mangás e outras obras literárias, e ex
 Grupo:
 
 Igor Brenno e kayo Ronald
+
+
+
+![Diagrama](/413567011-b2510577-1c49-49c4-a925-243266f7dbe5.png)

@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `loja_livros`.`Usuarios` (
   `endereco`   VARCHAR(45)   NOT NULL,
   `criado_em`  TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-  --Integridade
+  -- Integridade
   PRIMARY KEY (`CPF`),
   UNIQUE (`id_usuario`, `email`),
   CONSTRAINT vld_cpf CHECK (cpf REGEXP '^[0-9]+$')

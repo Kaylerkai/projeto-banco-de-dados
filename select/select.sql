@@ -9,6 +9,10 @@ FROM `loja_livros`.`Livro` l
 JOIN `loja_livros`.`Autor` a ON l.autor_ID = a.id_autor
 JOIN `loja_livros`.`Editora` e ON l.editora_CNPJ = e.CNPJ;
 
+-- OUExemplo com view
+
+SELECT * FROM view_livro_relatorio;
+
 -- 2. Consulta para Verificar as Resenhas de um Livro
 SELECT 
     r.nota,
