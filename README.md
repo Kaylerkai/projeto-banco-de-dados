@@ -15,6 +15,8 @@ Grupo:
 
 Igor Brenno e kayo Ronald
 
+todos inserts juntos:
 
+https://gist.github.com/igorBrenno/cd6db9e7ff169b68d2bd7a561aeda836
 
 ![Diagrama](/413567011-b2510577-1c49-49c4-a925-243266f7dbe5.png)
