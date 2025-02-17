@@ -56,7 +56,7 @@ HAVING total_pedidos >= 5;
 
 -- 9. Editoras com mais de 3 livros publicados
 SELECT ed.nome, 
-	(SELECT COUNT(*) FROM Livro l WHERE l.editora_CNPJ = e.CNPJ) AS livros_publicados
+	(SELECT COUNT(*) FROM Livro l WHERE l.editora_CNPJ = ed.CNPJ) AS livros_publicados
 FROM Editora ed
 HAVING livros_publicados > 3;
 
